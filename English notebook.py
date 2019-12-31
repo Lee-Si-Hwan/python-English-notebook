@@ -40,6 +40,7 @@ def menu():
 
     elif mn == 'meaning mode':
         title.config(text = mn)
+        b1.config(text = 'pass')
         setting()
 
     else:
