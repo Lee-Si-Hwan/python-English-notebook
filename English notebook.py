@@ -90,8 +90,10 @@ def All(event):
 
     elif mn == 'word mode':
         wordQ()
-    else:
+    elif mn == 'meaning mode':
         meaningQ()
+    else:
+        search()
 
 
 def wordQ():                             #뜻 맞추기
@@ -188,7 +190,6 @@ def search():
     value = answer.get()
     for row in range(1, sheet_rows+1):
         for col in range(1, sheet_cols+1):
-            print(sheet.cell(row,col).value)
             if value == sheet.cell(row,col).value:
                 searchlist.append(row)
                 
@@ -296,8 +297,4 @@ root.mainloop()
 ##########################
 #단어 추가는 되는데 그건 파이썬.idle로만 되고 비주얼코드는 자꾸 easygui가 문제있다면서 안됨(visual studio code에서만)
 #다음에 제발 고쳐줘
-
-
-
-
 
