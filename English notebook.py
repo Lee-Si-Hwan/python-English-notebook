@@ -79,6 +79,7 @@ def All(event):
         if ask['text'] == '1.영단어를 입력하시오':
             ask.config(text = answer.get())
             lb1.config(text = '')
+            answer.delete(0,len(answer.get()))
         else:
             means = lb1['text']
             if means == '':
@@ -87,6 +88,7 @@ def All(event):
                 means += ','
                 means += answer.get()
             lb1.config(text = means)
+            answer.delete(0,len(answer.get()))
 
 
     elif mn == 'word mode':
@@ -156,7 +158,7 @@ def next():
     global mn
     if mn == 'set word':
         append()
-    if mn == 'finding word':
+    elif mn == 'finding word':
         search()
     else:
         rand()
@@ -180,7 +182,7 @@ def append():
     append_list.append(".")
     sheet.append(append_list)                 #정보 입력
     data.save("data.xlsx")                    #저장
-    lb1.config(text = '저장되었습니다. 저장한 단어로 문제를 풀려면 프로그램을 다시 실행하세요.')
+    lb1.config(text = '저장되었습니다. ')
     ask.config(text = '1.영단어를 입력하시오')
 
 def search():
@@ -262,6 +264,7 @@ def rand():
             answers = sheet.cell(x,1).value
 
         ask.config(text = asks)
+        answer.delete(0,len(answer.get()))
 
 
 #단어 맞추는 메인 창 설정
