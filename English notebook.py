@@ -35,12 +35,14 @@ def menu():
     elif mn == 'word mode':
         title.config(text = mn)
         b1.config(text = 'pass')
+        lb1.config(text = '뜻을 적으시오')
         setting()
 
 
     elif mn == 'meaning mode':
         title.config(text = mn)
         b1.config(text = 'pass')
+        lb1.config(text = '뜻을 적으시오')
         setting()
 
     else:
@@ -229,18 +231,18 @@ def rand():
         ask.config(text = '끝났습니다! back을 누르고 모드를 선택하세요.')
 
     else:
-        if lb1["text"] == '땡!':
-                row = x
-                col = 1
+        if lb1["text"] == '땡' or lb1["text"] == '':
+            row = x
+            col = 1
+            value = sheet.cell(row,col).value
+            while value != '.':
+                msglist.append(value + ',')
+                col += 1
                 value = sheet.cell(row,col).value
-                while value != '.':
-                    msglist.append(value + ',')
-                    col += 1
-                    value = sheet.cell(row,col).value
-                easygui.msgbox(msglist, "test")
-        lb1.config(text = '')
+            easygui.msgbox(msglist, "test")
         y = random.sample(sheetlist, 1)
         x = y[0]
+
         #한 번 출제된 문제 다신 안나오게 하기
         sheetlist.remove(x)
         
@@ -265,6 +267,7 @@ def rand():
 
         ask.config(text = asks)
         answer.delete(0,len(answer.get()))
+        lb1.config(text = '')
 
 
 #단어 맞추는 메인 창 설정
