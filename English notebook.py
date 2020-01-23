@@ -21,7 +21,7 @@ mn = ''
 #처음에 모드 설정 창
 def menu_mode():
     global mn
-    mn = easygui.buttonbox("choice to want to mode. I have "+str(sheet_rows)+" words", "menu", ("set word", 'word mode', 'meaning mode', 'finding word')) #메뉴 설정창
+    mn = easygui.buttonbox("Select the desired mode. I have "+str(sheet_rows)+" words.", "menu", ("set word", 'word mode', 'meaning mode', 'finding word')) #메뉴 설정창
     menu()
     
 
@@ -146,7 +146,7 @@ def meaningQ():                  #단어 맞추기
         lb1.config(text = '정답')
         rand()
     else:
-        lb1.config(text = '땡!')
+        lb1.config(text = '땡')
 
 
 def find():
